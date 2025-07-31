@@ -1,8 +1,8 @@
 {
   "accountAssociation": {
     "header": "eyJmaWQiOjkwMDU4NCwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDZmOUFkMWNkM0RjRjI3MUM2OTY0ZDA2NThkYjU2QjM2ZDYyNDYxM2IifQ",
-    "payload": "eyJkb21haW4iOiJmdW5kbXl3aXNoLnZlcmNlbC5hcHAifQ",
-    "signature": "MHhjZmY5ZDA4OTAxYWUyNGNmMjhlOGNkNDZlZjBhNTE1MDQ1ZDlkMWQ3Y2ExMWY5M2E1ZWJlNzI0N2EyODg5OGM4MDk5YzFhN2I3MGY3MGEzNGNjMjVmMzAzZGQ3NzJiNzdmYWM2NDRkMjRmYzkxMmY1MzBhNjZiZTEyYmJkNzAwNzFj"
+    "payload": "eyJkb21haW4iOiJidWlsZHJzcGFjZS52ZXJjZWwuYXBwIn0",
+    "signature": "MHg4NmQ4MDIxOTIzNzUwYmQxMjhkNTdjNzY3ZjY2ODVhODYwNjgyYzAzMjVhNzQ1YTBmMzIyNGFjYjMxMTJlNDUxMTBkNGEwNjMzYzk0YzcyNmI0M2ZhOWQxMTQzYmQxYmFiMGMzZTVmZTg5NjAwYmMwYzg5NDQ0NjliMzRjZDI1ZjFi"
   },
   "frame": {
     "name": "Buildr",
