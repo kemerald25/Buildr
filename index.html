@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="fc:frame" content='{
+      "version": "next",
+      "imageUrl": "https://3a3b12c7c94b.ngrok-free.app/wish.png",
+      "button": {
+        "title": "Fund A Wish",
+        "action": {
+          "type": "launch_frame",
+          "name": "FundMyWish",
+          "url": "https://3a3b12c7c94b.ngrok-free.app/",
+          "splashImageUrl": "https://3a3b12c7c94b.ngrok-free.app/wish2.png",
+          "splashBackgroundColor": "#ffffff"
+        }
+      }
+    }' />
+
+  <link rel="icon" href="/wish2.png" sizes="any" />
+  <link rel="icon" href="/wish2.png" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/wish2.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <link rel="manifest" href="/manifest.json" />
+  <title>FundMyWish</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'base-blue': '#0052FF',
+            'base-blue-dark': '#003ebf',
+            'brand-dark': '#1a1a1a',
+            'brand-light': '#fffff',
+          }
+        }
+      }
+    }
+  </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.1",
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "@base-org/account": "https://esm.sh/@base-org/account@2.0.0",
+    "@farcaster/miniapp-sdk": "https://esm.sh/@farcaster/miniapp-sdk",
+    "firebase/": "https://esm.sh/firebase@10.12.2/",
+    "@coinbase/": "https://esm.sh/@coinbase/onchainkit/minikit",
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+<body class="bg-white text-gray-100 font-sans">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>

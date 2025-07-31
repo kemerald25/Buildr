@@ -1,0 +1,26 @@
+{
+  "name": "fundmywish",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@base-org/account": "1.1.1",
+    "@farcaster/miniapp-sdk": "^0.1.8",
+    "@types/react-router-dom": "^5.3.3",
+    "firebase": "10.12.2",
+    "lucide-react": "^0.534.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}

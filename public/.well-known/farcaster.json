@@ -1,0 +1,30 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjkwMDU4NCwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDZmOUFkMWNkM0RjRjI3MUM2OTY0ZDA2NThkYjU2QjM2ZDYyNDYxM2IifQ",
+    "payload": "eyJkb21haW4iOiJmdW5kbXl3aXNoLnZlcmNlbC5hcHAifQ",
+    "signature": "MHhjZmY5ZDA4OTAxYWUyNGNmMjhlOGNkNDZlZjBhNTE1MDQ1ZDlkMWQ3Y2ExMWY5M2E1ZWJlNzI0N2EyODg5OGM4MDk5YzFhN2I3MGY3MGEzNGNjMjVmMzAzZGQ3NzJiNzdmYWM2NDRkMjRmYzkxMmY1MzBhNjZiZTEyYmJkNzAwNzFj"
+  },
+  "frame": {
+    "name": "FundMyWish",
+    "version": "1",
+    "iconUrl": "https://fundmywish.vercel.app/wish2.png",
+    "homeUrl": "https://fundmywish.vercel.app/",
+    "imageUrl": "https://fundmywish.vercel.app/wish2.png",
+    "buttonTitle": "Make A Wish",
+    "splashImageUrl": "https://fundmywish.vercel.app/wish2.png",
+    "splashBackgroundColor": "#0A090F",
+    "webhookUrl": "https://fundmywish.vercel.app/",
+    "subtitle": "Fund wishes, make dreams real",
+    "description": "Create wishes, fund dreams, and build community through decentralized crowdfunding on Base",
+    "screenshotUrls": ["https://fundmywish.vercel.app/wish2.png"],
+    "primaryCategory": "social",
+    "tags": ["crowdfund", "base", "social", "wishes", "funding"],
+    "heroImageUrl": "https://fundmywish.vercel.app/wish2.png",
+    "tagline": "Fund wishes, grant dreams",
+    "ogTitle": "FundMyWish - Crowdfunding",
+    "ogDescription": "Web3 wish crowdfunding app",
+    "ogImageUrl": "https://fundmywish.vercel.app/wish2.png",
+    "requiredChains": ["eip155:8453"]
+  },
+  "requiredCapabilities": ["actions.signIn", "wallet.getEthereumProvider"]
+}
