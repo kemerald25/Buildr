@@ -39,6 +39,7 @@ import {
   arrayUnion,
   arrayRemove,
   increment,
+  writeBatch,
 } from "firebase/firestore";
 import {
   getStorage,
@@ -135,12 +136,61 @@ export const getUserProfile = async (
   return undefined;
 };
 
+/**
+ * Updates a user's profile and then propagates necessary changes 
+ * (like displayName and pfpUrl) to all the ideas they've created.
+ * @param uid - The user's unique ID.
+ * @param data - The partial user data to update.
+ */
 export const updateUserProfile = async (
   uid: string,
   data: Partial<User>
 ): Promise<void> => {
+  // 1. Reference the user's document
   const userRef = doc(db, "users", uid);
+
+  // 2. Update the main user document
   await updateDoc(userRef, data);
+  console.log("User profile updated in 'users' collection.");
+
+  // 3. Check if displayName or pfpUrl was updated, as these need to be propagated.
+  const hasInfoChanged = data.displayName !== undefined || data.pfpUrl !== undefined;
+
+  if (hasInfoChanged) {
+    console.log("Propagating profile changes to user's ideas...");
+    
+    // 4. Create a query to find all ideas created by this user
+    const ideasQuery = query(ideasCollection, where("creatorUid", "==", uid));
+    const ideasSnapshot = await getDocs(ideasQuery);
+
+    // 5. Use a write batch to update all documents atomically (all succeed or all fail)
+    const batch = writeBatch(db);
+    
+    ideasSnapshot.forEach((ideaDoc) => {
+      const ideaRef = doc(db, "ideas", ideaDoc.id);
+      const newCreatorInfo = {
+        // Use the new data if available, otherwise get it from the original document
+        // This requires fetching the full user profile to be safe
+        displayName: data.displayName,
+        pfpUrl: data.pfpUrl
+      };
+      
+      // We only want to update fields that have actually changed
+      const updateData: { [key: string]: any } = {};
+      if (data.displayName) {
+        updateData["creatorInfo.displayName"] = data.displayName;
+      }
+      if (data.pfpUrl) {
+        updateData["creatorInfo.pfpUrl"] = data.pfpUrl;
+      }
+
+      batch.update(ideaRef, updateData);
+    });
+
+    // 6. Commit the batch
+    await batch.commit();
+    console.log(`Propagated changes to ${ideasSnapshot.size} idea(s).`);
+  }
 };
 
 export const getIdeaById = async (id: string): Promise<Idea | undefined> => {

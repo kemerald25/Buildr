@@ -54,7 +54,7 @@ export interface Idea {
   title: string;
   description: string;
   creatorUid: string;
-  creatorInfo: {
+  creatorInfo?: {
     displayName: string;
     pfpUrl: string;
   };
