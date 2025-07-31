@@ -1,5 +1,5 @@
 {
-  "name": "FundMyWish",
+  "name": "Buildr",
   "description": "A web app where users can create a wishlist of items they want. Their friends and followers can then contribute any amount of USDC towards funding those items, powered by Base Pay.",
   "requestFramePermissions": []
 }

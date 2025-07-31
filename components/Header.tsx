@@ -2,7 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import { useAuth } from "../hooks/useAuth";
 import SignInWithBaseButton from "./SignInWithBaseButton";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X, LogOut, User as UserIcon, MessageSquare, Plus } from 'lucide-react';
+import {
+  Menu,
+  X,
+  LogOut,
+  User as UserIcon,
+  MessageSquare,
+  Plus,
+} from "lucide-react";
 
 const Header: React.FC = () => {
   const { user, loading, signIn, signOut } = useAuth();
@@ -15,7 +22,7 @@ const Header: React.FC = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        profileMenuRef.current && 
+        profileMenuRef.current &&
         !profileMenuRef.current.contains(event.target as Node) &&
         !profileBtnRef.current?.contains(event.target as Node)
       ) {
@@ -31,28 +38,21 @@ const Header: React.FC = () => {
   // Consistent NavLink style
   const navLinkStyle = ({ isActive }: { isActive: boolean }) =>
     `text-base font-medium transition-colors ${
-      isActive ? 'text-base-blue' : 'text-slate-600 hover:text-base-blue'
+      isActive ? "text-base-blue" : "text-slate-600 hover:text-base-blue"
     }`;
-  
+
   return (
     <header className="bg-white/80 backdrop-blur-sm border-b border-slate-200/90 sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center py-3 px-4 sm:px-6 lg:px-8">
         {/* Logo Section */}
-        <Link to="/" onClick={closeMobileMenu} className="flex items-center gap-3">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-base-blue"
-          >
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-          </svg>
+        <Link
+          to="/"
+          onClick={closeMobileMenu}
+          className="flex items-center gap-3"
+        >
+          <div className="w-[50px] h-[50px]">
+            <img src="/logo.png" className="w-full h-full object-contain" />
+          </div>
           <h1 className="text-xl font-bold text-slate-900 tracking-tight">
             BUILDR
           </h1>
@@ -60,9 +60,17 @@ const Header: React.FC = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <NavLink to="/builders" className={navLinkStyle}>Builders</NavLink>
-          <NavLink to="/ideas" className={navLinkStyle}>Ideas</NavLink>
-          {user && <NavLink to="/chat" className={navLinkStyle}>Messages</NavLink>}
+          <NavLink to="/builders" className={navLinkStyle}>
+            Builders
+          </NavLink>
+          <NavLink to="/ideas" className={navLinkStyle}>
+            Ideas
+          </NavLink>
+          {user && (
+            <NavLink to="/chat" className={navLinkStyle}>
+              Messages
+            </NavLink>
+          )}
         </nav>
 
         {/* Right side Actions */}
@@ -84,8 +92,8 @@ const Header: React.FC = () => {
                 >
                   <img
                     className="h-9 w-9 rounded-full object-cover"
-                    src={user.pfpUrl || '/default-avatar.png'}
-                    alt={user.displayName || 'User profile'}
+                    src={user.pfpUrl || "/default-avatar.png"}
+                    alt={user.displayName || "User profile"}
                   />
                 </button>
                 {profileMenuOpen && (
@@ -133,11 +141,29 @@ const Header: React.FC = () => {
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-slate-200/80">
           <nav className="px-4 pt-4 pb-8 flex flex-col gap-2">
-            <NavLink to="/builders" className={navLinkStyle} onClick={closeMobileMenu}>Builders</NavLink>
-            <NavLink to="/ideas" className={navLinkStyle} onClick={closeMobileMenu}>Ideas</NavLink>
+            <NavLink
+              to="/builders"
+              className={navLinkStyle}
+              onClick={closeMobileMenu}
+            >
+              Builders
+            </NavLink>
+            <NavLink
+              to="/ideas"
+              className={navLinkStyle}
+              onClick={closeMobileMenu}
+            >
+              Ideas
+            </NavLink>
             {user ? (
               <>
-                <NavLink to="/chat" className={navLinkStyle} onClick={closeMobileMenu}>Messages</NavLink>
+                <NavLink
+                  to="/chat"
+                  className={navLinkStyle}
+                  onClick={closeMobileMenu}
+                >
+                  Messages
+                </NavLink>
                 <hr className="my-3 border-slate-200/90" />
                 <Link
                   to={`/profile/${user.uid}`}
@@ -146,19 +172,19 @@ const Header: React.FC = () => {
                 >
                   <img
                     className="h-8 w-8 rounded-full object-cover"
-                    src={user.pfpUrl || '/default-avatar.png'}
+                    src={user.pfpUrl || "/default-avatar.png"}
                     alt="My Profile"
                   />
                   <span>{user.displayName}</span>
                 </Link>
-                 <Link
-                    to="/ideas/create"
-                    onClick={closeMobileMenu}
-                    className="w-full mt-2 bg-base-blue text-white px-4 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors flex items-center justify-center gap-2"
-                  >
-                    <Plus size={16} />
-                    Post an Idea
-                  </Link>
+                <Link
+                  to="/ideas/create"
+                  onClick={closeMobileMenu}
+                  className="w-full mt-2 bg-base-blue text-white px-4 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors flex items-center justify-center gap-2"
+                >
+                  <Plus size={16} />
+                  Post an Idea
+                </Link>
                 <button
                   onClick={signOut}
                   className="flex items-center justify-center gap-3 mt-4 w-full py-2 text-red-600 font-medium"

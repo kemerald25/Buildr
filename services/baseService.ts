@@ -69,7 +69,7 @@ export const signInWithBase = async (): Promise<{ user: User, isNewUser: boolean
 
   try {
     // The SDK needs a provider. It can find one from browser extensions like Coinbase Wallet.
-    const baseAccountSDK = createBaseAccountSDK({ appName: 'FundMyWish' });
+    const baseAccountSDK = createBaseAccountSDK({ appName: 'Buildr' });
     const provider = baseAccountSDK.getProvider();
 
     if (!provider) {
@@ -157,7 +157,7 @@ export const signInWithBase = async (): Promise<{ user: User, isNewUser: boolean
 export const signInWithBaseConnect = async (): Promise<{ user: User, isNewUser: boolean }> => {
   console.log('Initiating Sign in with Base using wallet_connect...');
 
-  const baseAccountSDK = createBaseAccountSDK({ appName: 'FundMyWish' });
+  const baseAccountSDK = createBaseAccountSDK({ appName: 'Buildr' });
   const provider = baseAccountSDK.getProvider();
 
   if (!provider) {
