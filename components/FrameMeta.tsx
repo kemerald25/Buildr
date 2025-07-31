@@ -18,19 +18,19 @@ const FrameMeta: React.FC<FrameMetaProps> = ({ wishId, wishName }) => {
 
     // Clean up the pathname to remove leading slash for proper URL construction
     const cleanPath = location.pathname.startsWith('/') ? location.pathname.slice(1) : location.pathname;
-    const frameUrl = cleanPath ? `https://Buildr.vercel.app/${cleanPath}` : 'https://Buildr.vercel.app/';
+    const frameUrl = cleanPath ? `https://buildrspace.vercel.app/${cleanPath}` : 'https://buildrspace.vercel.app/';
 
     // Create new frame metadata
     const frameMetadata = {
       version: "next",
-      imageUrl: "https://Buildr.vercel.app/bg.png",
+      imageUrl: "https://buildrspace.vercel.app/bg.png",
       button: {
         title: wishName ? `Fund: ${wishName}` : "Fund A Wish",
         action: {
           type: "launch_frame",
           name: "Buildr",
           url: frameUrl,
-          splashImageUrl: "https://Buildr.vercel.app/logo.png",
+          splashImageUrl: "https://buildrspace.vercel.app/logo.png",
           splashBackgroundColor: "#ffffff"
         }
       }
