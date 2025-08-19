@@ -16,15 +16,33 @@
     "webhookUrl": "https://buildrspace.vercel.app/",
     "subtitle": "Build together, faster.",
     "description": "Buildr is the ultimate platform for innovators to find co-founders, for builders to discover exciting projects",
-    "screenshotUrls": ["https://buildrspace.vercel.app/logo.png"],
+    "screenshotUrls": [
+      "https://buildrspace.vercel.app/logo.png"
+    ],
     "primaryCategory": "social",
-    "tags": ["collaboration", "base", "social", "builders", "startups"],
+    "tags": [
+      "collaboration",
+      "base",
+      "social",
+      "builders",
+      "startups"
+    ],
     "heroImageUrl": "https://buildrspace.vercel.app/logo.png",
     "tagline": "Build Together, Faster.",
     "ogTitle": "Buildr - Find Your Co-builder",
     "ogDescription": "The platform to connect with innovators",
     "ogImageUrl": "https://buildrspace.vercel.app/logo.png",
-    "requiredChains": ["eip155:8453"]
+    "requiredChains": [
+      "eip155:8453"
+    ]
   },
-  "requiredCapabilities": ["actions.signIn", "wallet.getEthereumProvider"]
+  "requiredCapabilities": [
+    "actions.signIn",
+    "wallet.getEthereumProvider"
+  ],
+  "baseBuilder": {
+    "allowedAddresses": [
+      "0x864c0A504da4ef27EE12b8197780e7067133587b"
+    ]
+  }
 }
